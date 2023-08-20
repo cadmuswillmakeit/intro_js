@@ -1,0 +1,343 @@
+@import "responsive.scss";
+
+* {
+    box-sizing: border-box;
+}
+body {
+
+    background-color: white;
+    font-family:roboto;
+    font-size: 1em;
+    margin : 0;
+    padding : 0;
+    ul {
+        list-style: none;
+    }
+}
+
+%link-style {
+    text-decoration: none;
+    color : black;
+    padding : 10px;
+}
+
+%link__red-background {
+    @extend %link-style;
+    background-color: red;
+    color: white;
+    border-radius: 6px;
+}
+
+header {
+    padding: 0 10%;
+    margin-block: 1rem;
+    width: 100%;
+    height : 100%;
+    #menu_burger {
+        cursor: pointer;
+        display: none;
+        color :red;
+        font-weight: bold;
+        border: 0;
+        background-color: white;;
+    }    
+    .header-nav > div {
+        color :red;
+        font-size: 3em;
+        font-weight: bold;
+    }    
+    .header-nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        .red-bg {
+            @extend %link__red-background;
+            text-decoration: underline;
+        }    
+    
+    }    
+} 
+
+
+nav > ul {
+    display: flex;
+}
+
+a{
+    @extend %link-style;
+}
+  
+$shadow: 0 0 12px 2px #4d4954;
+main {
+    padding: 0 10%;
+    display: flex;
+    flex-direction: column;
+    .sectionSecondaire {
+        display:none;
+    }
+    margin-block: 1rem;
+    .main-section {
+        padding: 35px 0 35px 4% ;
+        background: linear-gradient(to bottom,rgba(0,0,0,0), rgba(0,0,0,0.4) ), center top / cover url("../images/player.png");
+        color : white;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 600px;
+        border-radius: 12px;
+        justify-content: space-around;
+        gap : 20px;
+        &__title {
+            width: 80%;
+            font-size: 6rem;
+            font-weight: 200;
+        }
+        .btnInscription {
+            @extend %link__red-background;
+            border: 0;
+            padding-left: 25px;
+            padding-right: 25px;
+            color:white;
+            cursor : pointer;
+        }
+    
+    }   
+    .modaleInscription, .modaleInscriptionValidee {
+        position: fixed;
+        top: 0;
+        left:0;
+        right:0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background: #333333d3;
+    }
+        
+    // formulaire 
+    form {
+        top: 2%;
+        left: 33.5%;
+        max-width: 500px;
+        min-width: 300px;
+        background-color: #313131;   
+        color:white; 
+        position: relative;
+        border-radius: 13px;
+        padding: 12px 24px 16px 24px;
+        display: flex;
+        flex-direction: column;
+        gap : 15px;
+        .form__btnFermer {
+            cursor : pointer;
+            position: absolute;
+            top : 6px;
+            right: 8px;
+            align-items: flex-end;
+            border :0;
+            background-color: #313131;
+            color:white;
+            justify-content:flex-end;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        input[type="text"], input[type="email"], input[type="date"], input[type="number"] {
+            width: 100%;
+            height: 50px;
+        }   
+        input[type="submit"] {
+            color: white;
+            background-color: red;
+            padding : 15px 35%;
+            border : 0;
+            border-radius: 6px;
+        } 
+        .btnDiv {
+            padding : 0 35%;
+        }
+        .erreur {
+            font-size: 0.7em;
+            color: red;
+        }
+        #envoyer {
+            cursor: pointer;
+        }
+    }
+
+    // modale de remerciement
+    .modaleInscriptionEnregistree {
+        top: 2%;
+        left: 33.5%;
+        max-width: 450px;
+        min-width: 300px;
+        font-family:'Times New Roman';
+        background-color: #313131;
+        color:white;    
+        height: 700px;
+        position: relative;
+        border-radius: 15px;
+        padding: 12px 24px 16px 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .form__btnFermerDeux {
+            cursor : pointer;
+            position: absolute;
+            top : 6px;
+            right: 8px;
+            align-items: flex-end;
+            border :0;
+            background-color: #313131;
+            color:white;
+            justify-content:flex-end;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .btnDiv {
+            padding : 0 35%;
+            .btnFermer {
+                cursor : pointer;
+                color: white;
+                background-color: red;
+                padding: 15px 37%;
+                border: 0;
+                border-radius: 6px;
+            }    
+        }
+        .accueilMessage {
+            font-size: calc(1rem + 1vh);
+            .span {
+                display: none;
+            }
+            .pUn {
+                padding: 0 35.5%;
+            }
+            .pDeux {
+                padding: 0 29%;
+
+            }
+        }
+    }
+    
+}
+
+.modaleInscription,.modaleInscriptionValidee {
+    display: none;
+}
+
+footer {
+    padding: 1.5% 5%;
+    color : red;
+    font-size: 0.7em;
+}
+
+@media #{$mobile-size} {
+    body {
+        height: 100%;
+    }
+    header {
+        padding: 0 5%;;
+        width: 100%;
+        height:100%;
+        .header-nav > div {
+            font-size: 1.5em;
+        }
+        .header-nav {
+            .red-bg {
+                background-color: skyblue;
+                padding: 0;
+                border: 0;
+                color : red;
+            }    
+        
+        }        
+        #menu_burger {
+            display: block;
+            &::before {
+                content: "\2630"
+            }
+        }
+        .header-nav > ul {
+            position : fixed;
+            left : -100%;
+            top : 5%;
+            flex-direction: column;
+            gap : 1em;
+            width : 100%;
+            height: 25%;
+            text-align: center;
+            transition : 0.25s;
+            background-color: skyblue;
+        }
+        .active {
+            #menu_burger {
+                &::before {
+                    content: "\2715"
+                }
+            }
+            ul {
+                left : 0;
+            }
+        }
+    }
+    main {
+        padding : 0 5%;
+        .main-section {
+            display : none;
+        }
+        .sectionSecondaire {
+            display: flex;
+            margin: 0;
+            width: 100%;
+            /*display: flex;*/
+            flex-direction: column;
+            color : black;
+            background: white;
+            height: auto;
+            gap : 20px;
+            img {
+                width: 100%;
+                height : auto;
+                border-radius: 6px;
+            }
+            &__title {
+                font-size: 1.5em;
+            }
+            .btnInscriptionDeux {
+                border: 0;
+                padding: 15px;
+                display: inline-block;
+                margin-left: 37%;
+                cursor : pointer;
+                background-color: red;
+                color: white;
+                border-radius: 6px;            
+            }
+        }    
+
+        form, .modaleInscriptionEnregistree {
+            width: auto;
+            left: 0;            
+
+        }
+        .modaleInscriptionEnregistree {
+            min-height:350px ;
+            .accueilMessage {
+                .pUn, .pDeux {
+                    display: none;
+                }
+                .span {
+                    display: block;
+                    padding: 0 25%;
+                    line-height: 1.4em;
+                }    
+            }
+        }
+    }
+    footer {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }    
+}
